@@ -1,0 +1,5 @@
+name: cvae_vector
+encoder_hidden: [256, 256]
+decoder_hidden: [256, 256]
+z_dim: 32
+beta: 1.0

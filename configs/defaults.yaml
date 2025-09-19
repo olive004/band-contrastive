@@ -1,0 +1,9 @@
+defaults:
+  - data: vectors_dummy
+  - model: cvae_vector
+  - loss: band_supcon
+  - train: base
+  - eval: hitrate
+seed: 0
+device: cpu
+log_dir: outputs/${now:%Y-%m-%d}/${hydra.job.name}

@@ -1,0 +1,5 @@
+name: vectors_dummy
+num_nodes: 8
+vector_dim: 28
+num_samples: 256
+noise: 0.05

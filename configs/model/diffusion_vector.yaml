@@ -1,0 +1,4 @@
+name: diffusion_vector
+hidden: [512, 512]
+z_dim: 32
+steps: 100

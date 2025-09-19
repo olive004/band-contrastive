@@ -1,0 +1,1 @@
+Each table row ↔ configs/exp/*.yaml (stub).
