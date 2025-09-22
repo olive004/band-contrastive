@@ -1,0 +1,7 @@
+loss_recon: 'mse'
+use_l2_reg: False
+l2_reg_alpha: 2e-5
+use_kl_div: True
+kl_weight: 2e-4
+kl_warmup_steps: 50
+use_contrastive_loss: False

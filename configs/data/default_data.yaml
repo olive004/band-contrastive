@@ -1,0 +1,19 @@
+name: default_data
+seed: 1
+objective: ['adaptation']
+output_species: ['RNA_2']
+signal_species: ['RNA_0']
+data_path: 'band_contrastive/data/processed/rna_circuits_proc.json'
+data_og_cfg: 'band_contrastive/data/processed/2025_02_11__13_56_51/config.json'
+data_path_eval: None
+data_og_cfg_eval: None
+n_samples_max: 5e6
+train_frac: 0.8
+val_frac: 0.1
+x_type: 'energies'
+
+
+# pre-processing
+defaults:
+  - filtering
+  - prep

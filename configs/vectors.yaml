@@ -1,0 +1,12 @@
+name: cvae_vectors
+defaults:
+  - data: default_data
+  - model: cvae_vector
+  - cont_loss: band_supcon
+  - loss: mse_bandsup
+  - train: train_vector
+  - eval: hitrate
+  - optim: adam
+seed: 0
+device: gpu
+log_dir: outputs/${now:%Y-%m-%d}/${hydra.job.name}

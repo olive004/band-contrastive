@@ -1,0 +1,12 @@
+name: band_supcon
+delta: 0.10
+temperature: 0.1
+lambda_contrastive: 0.3
+curriculum: [0.25, 0.15, 0.10]
+
+
+contrastive_func: 'info_nce'
+
+# for band contrastive
+threshold_similarity: 0.95
+power_factor_distance: 3

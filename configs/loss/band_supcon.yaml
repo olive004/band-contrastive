@@ -1,5 +1,0 @@
-name: band_supcon
-delta: 0.10
-tau: 0.1
-lambda_contrastive: 0.3
-curriculum: [0.25, 0.15, 0.10]

@@ -1,9 +1,11 @@
-# Ready-to-run toy experiment (CPU friendly)
+# name: cvae_vectors
 defaults:
-  - override /data: vectors_dummy
+  - override /data: default_data
   - override /model: cvae_vector
   - override /loss: band_supcon
-  - override /train: base
+  - override /train: train_vector
   - override /eval: hitrate
+  - override /optim: adam
 seed: 0
-device: cpu
+device: gpu
+log_dir: outputs/${now:%Y-%m-%d}/${hydra.job.name}

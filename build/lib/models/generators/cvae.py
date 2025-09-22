@@ -1,5 +1,5 @@
 import torch, torch.nn as nn, torch.nn.functional as F
-from bandcon.models.encoders.mlp_vector import MLPVectorEncoder
+from band_contrastive.bandcon.models.mlp_vector import MLPVectorEncoder
 from bandcon.models.decoders.vector_decoder import VectorDecoder
 from bandcon.data.loaders import simple_loader
 

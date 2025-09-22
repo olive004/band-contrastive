@@ -2,7 +2,7 @@ from omegaconf import DictConfig
 from bandcon.utils.hydra_utils import set_seed
 from bandcon.data.datasets import DummyVectorDataset
 from bandcon.models.generators.cvae import VectorCVAE
-from bandcon.train.loops import train_one_epoch
+from bandcon.train.loops import train_epoch
 from bandcon.losses.band_supcon import band_supcon_loss
 from bandcon.eval.metrics import simple_eval
 
@@ -12,7 +12,7 @@ def main(cfg: DictConfig):
     ds = DummyVectorDataset(cfg.data)
     model = VectorCVAE(cfg.model, ds.vector_dim)
     # one tiny epoch on CPU
-    train_one_epoch(model, ds, cfg.train, contrastive_fn=band_supcon_loss, device=cfg.get("device","cpu"))
+    train_epoch(model, ds, cfg.train, contrastive_fn=band_supcon_loss, device=cfg.get("device","cpu"))
     # save a tiny checkpoint substitute
     import torch, os
     os.makedirs("outputs", exist_ok=True)

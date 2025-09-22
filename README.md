@@ -15,7 +15,8 @@ pip install -e .
 pytest -q
 
 # 4) Train a minimal toy run (vector CVAE + Band-SupCon on dummy data)
-python scripts/train.py +experiment=exp/vector_cvae_band seed=0 device=cpu
+python scripts/train.py +experiment=vectors
+# python scripts/train.py +experiment=exp/vector_cvae_band seed=0 device=cpu
 
 # 5) Generate designs for a target y*
 python scripts/generate.py --checkpoint=outputs/dummy.ckpt --target_y=0.75 --n=8

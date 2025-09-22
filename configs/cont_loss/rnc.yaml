@@ -1,0 +1,3 @@
+name: rnc
+margin: 0.2
+lambda_contrastive: 0.3

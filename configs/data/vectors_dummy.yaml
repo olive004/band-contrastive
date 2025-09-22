@@ -1,5 +1,7 @@
 name: vectors_dummy
-num_nodes: 8
+n_nodes: 8
 vector_dim: 28
-num_samples: 256
+n_samples_max: 256
 noise: 0.05
+train_frac: 0.8
+val_frac: 0.1

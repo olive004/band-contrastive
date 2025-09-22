@@ -1,0 +1,10 @@
+# Ready-to-run toy experiment (CPU friendly)
+defaults:
+  - override /data: vectors_dummy
+  - override /model: cvae_vector
+  - override /loss: band_supcon
+  - override /train: base
+  - override /eval: hitrate
+  - override /optim: adam
+seed: 0
+device: cpu

@@ -1,0 +1,8 @@
+filt_x_nans: True
+filt_y_nans: True
+filt_sensitivity_nans: True
+filt_precision_nans: True
+filt_n_same_x_max: 1
+filt_n_same_x_max_bins: None
+filt_response_time_high: True
+filt_response_time_perc_max: 0.8

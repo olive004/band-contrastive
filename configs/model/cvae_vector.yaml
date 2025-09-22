@@ -1,5 +1,11 @@
 name: cvae_vector
-encoder_hidden: [256, 256]
-decoder_hidden: [256, 256]
+seed: 25
 z_dim: 32
 beta: 1.0
+encoder_hidden: [32, 32, 32]
+decoder_hidden: [32, 32, 32]
+use_sigmoid_decoder: False
+enc_init: 'kaiming'
+dec_init: 'kaiming'
+init_model_with_random: True
+activation: 'leaky_relu'

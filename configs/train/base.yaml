@@ -4,3 +4,4 @@ lr: 1e-3
 kl_warmup_steps: 50
 precision: 32
 log_every_n_steps: 5
+clip_grad: False
