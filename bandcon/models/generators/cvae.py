@@ -16,7 +16,7 @@ def reparameterise(mu, logvar, seed: int, deterministic=False):
 
 
 class VectorCVAE(pl.LightningModule):
-    def __init__(self, model_cfg, x_dim: int, c_dim):
+    def __init__(self, model_cfg, x_dim: int, c_dim: int):
         super().__init__()
         self.z_dim = model_cfg.get("z_dim", 32)
         self.x_dim = x_dim

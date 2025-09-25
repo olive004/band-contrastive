@@ -1,0 +1,6 @@
+loss_recon: 'custom_loss'
+# use_l2_reg: False
+# l2_reg_alpha: 2e-5
+use_kl_div: True
+kl_warmup_steps: 0
+use_contrastive_loss: False

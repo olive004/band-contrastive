@@ -1,16 +1,18 @@
-seed: 12
+seed: 0
 
-epochs: 2000
-batch_size: 256
+epochs: 10000
+batch_size: 5096
 lr: 1e-3
-patience: 1500
-log_every_n_steps: 5
+patience: 500
+early_stop_metric: 'val_acc'
+log_every_n_epochs: 5
 check_val_every_n_epochs: 10
 save_model: True
 
 threshold_early_val_acc: 0.98
-accuracy_func: 'regression'
+accuracy_func: 'regression_meandim'
+accuracy_thresh: 0.08
 
 use_dropout: False
 dropout_rate: 0.1
-clip_grad: False
+clip_grad: True

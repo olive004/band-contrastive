@@ -1,2 +1,3 @@
 name: adam
-weight_decay: 0.01
+weight_decay: 3e-2
+amsgrad: True

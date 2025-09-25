@@ -3,7 +3,7 @@ defaults:
   - data: default_data
   - model: cvae_vector
   - cont_loss: band_supcon
-  - loss: mse_bandsup
+  - loss: no_contloss
   - train: train_vector
   - eval: hitrate
   - optim: adam

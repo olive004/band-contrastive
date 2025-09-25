@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Tuple, Optional
 from omegaconf import DictConfig
 from bandcon.data.processing.physical import embellish_data
 from bandcon.data.processing.filter import filter_invalids
@@ -8,6 +8,14 @@ import numpy as np
 import pandas as pd
 import torch
 import os
+
+
+def make_dataset(cfg_data: DictConfig):
+    if 'data' in cfg_data.data_path.split(os.sep):
+        data_cls = RNADataset
+    else:
+        raise ValueError(f'Could not find dataset according to settings {cfg_data}')
+    return data_cls(cfg_data)
 
 
 @dataclass
@@ -81,13 +89,18 @@ class DataNormaliser:
     def min_max_scaling(
         self,
         data,
-        feature_range: Tuple[float, float] = (0, 1),
+        range_prev: Optional[Tuple[float, float]] = None,
+        range_new: Tuple[float, float] = (0, 1),
         col=None,
         use_precomputed: bool = False,
         tiny: float = 1e-6,
     ):
-        min_val = np.nanmin(data, axis=0)
-        max_val = np.nanmax(data, axis=0)
+        if range_prev is None:
+            min_val = np.nanmin(data, axis=0)
+            max_val = np.nanmax(data, axis=0)
+        else:
+            min_val = range_prev[0]
+            max_val = range_prev[1]
         scale = max_val - min_val
 
         if use_precomputed:
@@ -98,7 +111,7 @@ class DataNormaliser:
         scale = np.where(scale == 0, tiny, scale)
 
         # Map to desired feature range
-        min_range, max_range = feature_range
+        min_range, max_range = range_new
         scaled = calc_minmax(data, min_val, scale, max_range, min_range)
 
         if not use_precomputed:
@@ -106,7 +119,7 @@ class DataNormaliser:
             k = {
                 'min_val': min_val,
                 'scale': scale,
-                'feature_range': feature_range
+                'range_new': range_new
             }
             if col:
                 self.metadata.setdefault(col, {}).update(k)
@@ -121,6 +134,9 @@ class DataNormaliser:
     def log_scaling(self, data, **kwargs):
         return np.log10(data)
     
+    def inverse_log_scaling(self, data, **kwargs):
+        return 10 ** data
+    
 
 def prep(data, x_cols, c_cols, cfg, normaliser: DataNormaliser):
     
@@ -134,15 +150,15 @@ def prep(data, x_cols, c_cols, cfg, normaliser: DataNormaliser):
 
     if cfg.prep_x_negative:
         x = normaliser.flip_negative(x)
-    if cfg.prep_y_negative:
+    if cfg.prep_c_negative:
         c = apply_c_f(c, normaliser.flip_negative)
     if cfg.prep_x_logscale:
         x = normaliser.log_scaling(x)
-    if cfg.prep_y_logscale:
+    if cfg.prep_c_logscale:
         c = apply_c_f(c, normaliser.log_scaling)
     if cfg.prep_x_min_max:
-        x = normaliser.min_max_scaling(x)
-    if cfg.prep_y_min_max:
+        x = normaliser.min_max_scaling(x )
+    if cfg.prep_c_min_max:
         c = apply_c_f(c, normaliser.min_max_scaling)
     
     return x, c

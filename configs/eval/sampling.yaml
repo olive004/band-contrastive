@@ -1,5 +1,0 @@
-eval_n_to_sample: 100000
-eval_cond_min: -0.2
-eval_cond_max: 1.2
-eval_n_categories: 10
-eval_batch_size: 1000000

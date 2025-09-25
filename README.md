@@ -19,7 +19,8 @@ python scripts/train.py +experiment=vectors
 # python scripts/train.py +experiment=exp/vector_cvae_band seed=0 device=cpu
 
 # 5) Generate designs for a target y*
-python scripts/generate.py --checkpoint=outputs/dummy.ckpt --target_y=0.75 --n=8
+# python scripts/generate.py --checkpoint=outputs/dummy.ckpt --target_y=0.75 --n=8
+python scripts/generate.py --checkpoint=band_contrastive/checkpoints/2025-09-23_16-02-06 --target_y=0.75 --n=8
 
 # 6) Evaluate hit-rate at ±10% (dummy eval)
 python scripts/eval.py +checkpoint=outputs/dummy.ckpt eval=hitrate

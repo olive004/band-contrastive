@@ -1,17 +1,17 @@
 # XY pre-processing
 prep_x_min_max: True
-prep_y_min_max: True
+prep_c_min_max: True
 prep_x_logscale: False
-prep_y_logscale: False
+prep_c_logscale: False
 prep_x_categorical: False
-prep_y_categorical: False
+prep_c_categorical: False
 prep_x_categorical_onehot: False
-prep_y_categorical_onehot: False
+prep_c_categorical_onehot: False
 prep_x_categorical_n_bins: 5
-prep_y_categorical_n_bins: 5
+prep_c_categorical_n_bins: 5
 prep_x_categorical_method: 'quantile'
-prep_y_categorical_method: 'quantile'
+prep_c_categorical_method: 'quantile'
 prep_x_negative: True
-prep_y_negative: False
+prep_c_negative: False
 
 bin_x_edges_n: null

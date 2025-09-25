@@ -1,9 +1,9 @@
 name: cvae_vector
-seed: 25
+seed: 0
 z_dim: 32
-beta: 1.0
-encoder_hidden: [32, 32, 32]
-decoder_hidden: [32, 32, 32]
+beta: 4.0
+encoder_hidden: [32, 32]
+decoder_hidden: [32, 32]
 use_sigmoid_decoder: False
 enc_init: 'kaiming'
 dec_init: 'kaiming'

@@ -1,0 +1,9 @@
+avg_mRNA_per_cell: 100,
+cell_doubling_time: 1200,
+creation_rate: 2.35,
+starting_copynumbers: 200,
+degradation_rate: 0.01175,
+association_binding_rate: 1000000,
+creation_rate_per_molecule: 3.5475152795e-09,
+degradation_rate_per_molecule: 1.77375763975e-11,
+association_binding_rate_per_molecule: 0.00150958097

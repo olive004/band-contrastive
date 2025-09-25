@@ -11,3 +11,4 @@ outputs/
 .vscode/
 .venv/
 .DS_Store
+checkpoints/

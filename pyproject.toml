@@ -25,6 +25,7 @@ dependencies = [
   "networkx>=3.0",
   "pandas>=1.5",
   "matplotlib>=3.6",
+  "seaborn>=0.13",
   "jax>=0.4.16",
   "jaxlib>=0.4.16",
   "ipykernel>=6.30.1"
